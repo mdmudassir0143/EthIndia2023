@@ -19,6 +19,7 @@
         "express-session": "^1.17.3",
         "jsonwebtoken": "^9.0.0",
         "mongoose": "^7.4.0",
+        "nodemon": "^3.0.2",
         "properties-reader": "^2.2.0",
         "swagger-jsdoc": "^6.2.8",
         "swagger-ui-express": "^4.6.2",

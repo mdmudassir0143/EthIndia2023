@@ -5,6 +5,7 @@ import { ethers } from "ethers";
 import { Button, Input, Link, Text, Heading } from "@chakra-ui/react";
 import JoinMentor from "../PopUp/JoinMentor";
 
+
 type NavbarProps = {
 	user: any;
 	handleLogIn: () => void;
@@ -75,6 +76,9 @@ const Navbar: React.FC<NavbarProps> = (props) => {
 			<Heading mr={"60%"} color={"white"}>
 				FlowMentor
 			</Heading>
+			<Button colorScheme='blue'>Create Notification</Button>
+			<Button colorScheme='blue'>Use Notification</Button>
+
 			{props.user.addr ? props.user.addr : ""}
 			<Link href="/Meets">
 				<Button
