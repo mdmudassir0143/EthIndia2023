@@ -4,6 +4,8 @@ import React from "react";
 import { ethers } from "ethers";
 import { Button, Input, Link, Text, Heading } from "@chakra-ui/react";
 import JoinMentor from "../PopUp/JoinMentor";
+import { HiBellAlert } from "react-icons/hi2";
+import { TbBellBolt } from "react-icons/tb";
 
 
 type NavbarProps = {
@@ -76,8 +78,8 @@ const Navbar: React.FC<NavbarProps> = (props) => {
 			<Heading mr={"60%"} color={"white"}>
 				FlowMentor
 			</Heading>
-			<Button colorScheme='blue'>Create Notification</Button>
-			<Button colorScheme='blue'>Use Notification</Button>
+			<Link href="/create"><Button colorScheme='blue'>Push <TbBellBolt /></Button></Link>
+			<Link href="/user"><Button colorScheme='blue'><HiBellAlert /></Button></Link>
 
 			{props.user.addr ? props.user.addr : ""}
 			<Link href="/Meets">

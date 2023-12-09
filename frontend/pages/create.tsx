@@ -1,4 +1,13 @@
 import React, { useState } from 'react';
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  VStack,
+} from '@chakra-ui/react';
 
 interface ChannelFormProps {
   onSubmit: (formData: ChannelFormData) => void;
@@ -19,7 +28,9 @@ const ChannelForm: React.FC<ChannelFormProps> = ({ onSubmit }) => {
     description: '',
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
@@ -30,48 +41,54 @@ const ChannelForm: React.FC<ChannelFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Channel Address:
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Channel Name:
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Channel Title:
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Description:
-        <textarea
-          name="description"
-          value={formData.description}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+    <Box p={4} maxW="md" borderWidth="1px" borderRadius="lg" shadow="md">
+      <form onSubmit={handleSubmit}>
+        <VStack spacing={4}>
+          <FormControl>
+            <FormLabel>Channel Address</FormLabel>
+            <Input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+            />
+          </FormControl>
+
+          <FormControl>
+            <FormLabel>Channel Name</FormLabel>
+            <Input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+            />
+          </FormControl>
+
+          <FormControl>
+            <FormLabel>Channel Title</FormLabel>
+            <Input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleInputChange}
+            />
+          </FormControl>
+
+          <FormControl>
+            <FormLabel>Description</FormLabel>
+            <Textarea
+              name="description"
+              value={formData.description}
+              onChange={handleInputChange}
+            />
+          </FormControl>
+
+          <Button type="submit" colorScheme="teal">
+            Submit
+          </Button>
+        </VStack>
+      </form>
+    </Box>
   );
 };
 
@@ -83,11 +100,14 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Channel Form</h1>
-      <ChannelForm onSubmit={handleSubmit} />
-    </div>
+    <Box p={8}>
+      <VStack spacing={4}>
+        <h1>Channel Form</h1>
+        <ChannelForm onSubmit={handleSubmit} />
+      </VStack>
+    </Box>
   );
 };
 
 export default App;
+
